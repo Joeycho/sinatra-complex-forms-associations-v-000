@@ -38,9 +38,9 @@ class PetsController < ApplicationController
   patch '/pets/:id' do
     ####### bug fix
     @pet = Pet.find(params[:id])
-    if params["owner[name]"]!= nil
+    if params[:owner][:name]!= nil
     @pet.name = params[:pet_name]
-    @owner = Owner.create(name: params["owner[name]"])
+    @owner = Owner.create(name: params[:owner][:name])
     @pet.owner = @owner
     @pet.save
     #######
