@@ -14,7 +14,7 @@
   <br>
   
   <%@owners.each do |owner|%>
-    <input type="checkbox" name="owners[]" value="<%=owner.id%>" id="<%=owner.id%>"><%=owner.name%></input>
+    <input type="radio" name="owner" value="<%=owner.id%>" id="<%=owner.id%>"><%=owner.name%></input>
   <%end%>
   
    <br>
