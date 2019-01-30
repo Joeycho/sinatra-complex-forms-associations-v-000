@@ -43,7 +43,6 @@ class PetsController < ApplicationController
     @pet.save
     #######
     else
-    binding.pry
     @pet.name = params[:pet_name]
     @pet.owner = Owner.find(params[:owner_id])
     @pet.save
