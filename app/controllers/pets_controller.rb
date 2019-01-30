@@ -37,7 +37,7 @@ class PetsController < ApplicationController
     ####### bug fix
     @pet = Pet.find(params[:id])
     binding.pry
-    if params[:owner_id]== nil || params[:owner][:name] 
+    if params[:owner][:name].length >= 2 
     @pet.name = params[:pet_name]
     @owner = Owner.create(name: params[:owner][:name])
     @pet.owner = @owner
