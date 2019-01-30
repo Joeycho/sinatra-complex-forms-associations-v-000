@@ -39,6 +39,7 @@ class PetsController < ApplicationController
     ####### bug fix
     @pet = Pet.find(params[:id])
     if params[:owner_name]!= nil
+    @pet.name = params[:pet_name]
     @owner = Owner.create(name: params["owner_name"])
     @pet.owner = @owner
     @pet.save
