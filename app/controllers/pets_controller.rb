@@ -37,7 +37,6 @@ class PetsController < ApplicationController
 
   patch '/pets/:id' do
     ####### bug fix
-    binding.pry
     @pet = Pet.find(params[:id])
     if params[:owner_name]!= nil
     @owner = Owner.create(name: params["owner_name"])
@@ -46,6 +45,7 @@ class PetsController < ApplicationController
     #######
     
     @pet.name = params[:pet_name]
+    binding.pry
     @pet.owner = Owner.find(params[:owners].first)
     @pet.save
     redirect "pets/#{@pet.id}"
