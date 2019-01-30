@@ -38,18 +38,16 @@ class PetsController < ApplicationController
   patch '/pets/:id' do
     ####### bug fix
     binding.pry
-    if params[:owners].empty?
     @pet = Pet.find(params[:id])
+    if params[:owners].empty?
     @owner = Owner.create(name: params["owner_name"]
-    @
+    @pet.owner = @owner
     end
     #######
- 
-    @pet = Pet.find(params[:id])
-    @pet.update(params["pet"])
-    if !params["pet_name"].empty?
-      @pet.owners << Owner.create(name: params["owner_name"])
-    end
+    
+    @pet.name = params[:pet_name]
+    @pet.owner = Owner.find(params[:owners].first)
+    @pet.save
     redirect "pets/#{@pet.id}"
   end
   
