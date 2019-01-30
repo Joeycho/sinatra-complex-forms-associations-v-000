@@ -38,8 +38,10 @@ class PetsController < ApplicationController
   patch '/pets/:id' do
     ####### bug fix
     binding.pry
-    if !params[:owners].keys.include?("owner_ids")
-    params[:pet]["owner_ids"] = []
+    if params[:owners].empty?
+    @pet = Pet.find(params[:id])
+    @owner = Owner.create(name: params["owner_name"]
+    @
     end
     #######
  
