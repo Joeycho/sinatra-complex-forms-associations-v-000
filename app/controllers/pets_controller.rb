@@ -41,13 +41,14 @@ class PetsController < ApplicationController
     if params[:owner_name]!= nil
     @owner = Owner.create(name: params["owner_name"])
     @pet.owner = @owner
-    end
+    @pet.save
     #######
-    
+    else
     @pet.name = params[:pet_name]
     binding.pry
     @pet.owner = Owner.find(params[:owners].first)
     @pet.save
+    end
     redirect "pets/#{@pet.id}"
   end
   
