@@ -33,7 +33,7 @@ class PetsController < ApplicationController
   end
 
   patch '/pets/:id' do
-    binding.pry
+    #binding.pry
     ####### bug fix
     @pet = Pet.find(params[:id])
     if params[:owner][:name]!= nil
